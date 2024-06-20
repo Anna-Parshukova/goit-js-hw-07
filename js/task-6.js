@@ -3,22 +3,20 @@ function getRandomHexColor() {
 }
 function createBoxes(amount) {
   const boxesContainer = document.getElementById('boxes');
-  boxesContainer.innerHTML = ''; // Clear previous boxes
-
+  boxesContainer.innerHTML = ''; 
   let size = 30;
+  let boxesHTML = ''; 
   for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div');
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
-    box.classList.add('box');
-    boxesContainer.appendChild(box);
+    const color = getRandomHexColor();
+    boxesHTML += `<div class="box" style="width: ${size}px; height: ${size}px; background-color: ${color};"></div>`;
     size += 10;
   }
+
+  boxesContainer.innerHTML = boxesHTML;
 }
 function destroyBoxes() {
   const boxesContainer = document.getElementById('boxes');
-  boxesContainer.innerHTML = ''; // Clear all boxes
+  boxesContainer.innerHTML = ''; 
 }
 
 document.addEventListener('DOMContentLoaded', () => {
